@@ -18,7 +18,14 @@ def self.all_students_in_grade_9
   arr = DB[:conn].execute(sql)
   arr
 end
-
+def self.all_students_below_12th_grade
+ arr = []
+  sql = <<-SQL
+  SELECT * FROM students WHERE grade < 12;
+  SQL
+  arr = DB[:conn].execute(sql)
+  arr
+end
   def self.all
     sql = <<-SQL
     SELECT * FROM students
