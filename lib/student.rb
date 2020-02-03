@@ -17,6 +17,7 @@ def self.all_students_in_grade_9
   SQL
   arr = DB[:conn].execute(sql)
   Student.new_from_db(arr)
+  arr
 end
 def self.students_below_12th_grade
  arr = []
