@@ -13,10 +13,13 @@ class Student
 def first_X_students_in_grade_10(X)
 arr = []
 arr_instances = []
-  sql = "SELECT * FROM students WHERE grade = 10"
-
+arr_instances_fixed = []
+  sql = <<-SQL
+          SELECT * FROM students WHERE grade = 10"
+            SQL
   arr = DB[:conn].execute(sql)
-  arr.each {|el| arr_instances << Student.new_from_db(el)}
+  arr.each {|el|
+    for el.index arr_instances << Student.new_from_db(el)}
   arr_instances
 
 
