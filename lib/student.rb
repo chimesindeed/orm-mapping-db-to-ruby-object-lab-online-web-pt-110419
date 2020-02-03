@@ -31,14 +31,16 @@ def self.students_below_12th_grade
   arr_instances
 end
   def self.all
+    arr = []
+    arr_instances = []
     sql = <<-SQL
     SELECT * FROM students
     SQL
-    
-    all_rows = DB[:conn].execute(sql)
+    arr = DB[:conn].execute(sql)
+    arr.each{|el| arr_instances << Student.new_from_db(el)}
+    arr_instances
     # retrieve all the rows from the "Students" database
     # remember each row should be a new instance of the Student class
-    all_rows.each {|element| @@every_student << Student.new_from_db(element)}
   end
 
   def self.find_by_name(name)
