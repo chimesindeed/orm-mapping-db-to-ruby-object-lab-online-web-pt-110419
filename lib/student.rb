@@ -21,7 +21,9 @@ arr_instances_fixed = []
   arr = DB[:conn].execute(sql)
   arr.each {|el|
     if el.index < amount
-      arr_instances << Student.new_from_db(el)}
+      arr_instances << Student.new_from_db(el)
+    end
+  }
   arr_instances
 end
 def self.all_students_in_grade_9
