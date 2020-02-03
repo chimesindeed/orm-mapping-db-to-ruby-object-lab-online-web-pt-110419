@@ -11,6 +11,7 @@ class Student
   end
 
 def first_X_students_in_grade_10(X)
+amount = X
 arr = []
 arr_instances = []
 arr_instances_fixed = []
@@ -19,11 +20,9 @@ arr_instances_fixed = []
             SQL
   arr = DB[:conn].execute(sql)
   arr.each {|el|
-    for el.index arr_instances << Student.new_from_db(el)}
+    if el.index < amount
+      arr_instances << Student.new_from_db(el)}
   arr_instances
-
-
-
 end
 def self.all_students_in_grade_9
   arr = []
