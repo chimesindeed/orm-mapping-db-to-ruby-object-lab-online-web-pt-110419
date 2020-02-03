@@ -10,6 +10,7 @@ class Student
    new_student
   end
 
+
 def self.all_students_in_grade_9
   arr = []
   arr_instances = []
