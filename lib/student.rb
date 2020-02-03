@@ -16,7 +16,7 @@ def self.all_students_in_grade_9
   SELECT * FROM students WHERE grade = 9;
   SQL
   arr = DB[:conn].execute(sql)
-  arr
+  Student.new_from_db(arr)
 end
 def self.students_below_12th_grade
  arr = []
