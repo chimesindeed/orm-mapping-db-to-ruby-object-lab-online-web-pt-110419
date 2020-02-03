@@ -22,11 +22,13 @@ def self.all_students_in_grade_9
 end
 def self.students_below_12th_grade
  arr = []
+ arr_instances = []
   sql = <<-SQL
   SELECT * FROM students WHERE grade < 12;
   SQL
   arr = DB[:conn].execute(sql)
-  Student.new_from_db(arr)
+  arr.each {|el| arr_instances << Student.new_from_db(el)}
+  arr_instances
 end
   def self.all
     sql = <<-SQL
