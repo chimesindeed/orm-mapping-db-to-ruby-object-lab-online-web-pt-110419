@@ -10,8 +10,7 @@ class Student
    new_student
   end
 
-def first_X_students_in_grade_10(X)
-amount = X
+def first_X_students_in_grade_10(amount)
 arr = []
 arr_instances = []
 arr_instances_fixed = []
