@@ -26,7 +26,6 @@ def self.students_below_12th_grade
   SQL
   arr = DB[:conn].execute(sql)
   Student.new_from_db(arr)
-  arr
 end
   def self.all
     sql = <<-SQL
