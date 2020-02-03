@@ -13,6 +13,11 @@ class Student
 def first_X_students_in_grade_10(X)
 arr = []
 arr_instances = []
+  sql = "SELECT * FROM students WHERE grade = ;
+
+  arr = DB[:conn].execute(sql)
+  arr.each {|el| arr_instances << Student.new_from_db(el)}
+  arr_instances
 
 
 
